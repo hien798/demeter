@@ -36,16 +36,33 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
               ),
               child: Column(
                 children: <Widget>[
-                  Container(
-                    width: double.infinity,
-                    height: 140,
-                    alignment: Alignment.bottomLeft,
-                    padding: EdgeInsets.all(16),
-                    color: Colors.black26,
-                    child: AppbarTitle(
-                      controller: _tabController,
-                      titles: tabs.map((data) => data.title).toList(),
-                    ),
+                  Stack(
+                    alignment: Alignment.topRight,
+                    children: <Widget>[
+                      Container(
+                        width: double.infinity,
+                        height: 140,
+                        alignment: Alignment.bottomLeft,
+                        padding: EdgeInsets.all(16),
+                        color: Colors.black26,
+                        child: AppbarTitle(
+                          controller: _tabController,
+                          titles: tabs.map((data) => data.title).toList(),
+                        ),
+                      ),
+                      Positioned(
+                        top: 36,
+                        right: 16,
+                        child: Container(
+                          width: 36,
+                          child: FloatingActionButton(
+                            onPressed: () {},
+                            child: Icon(Icons.add, color: Colors.white),
+                            backgroundColor: Colors.grey.withOpacity(0.6),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                   Expanded(
                     child: Container(

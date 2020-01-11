@@ -6,9 +6,14 @@ class MyDevice extends StatefulWidget {
   _MyDeviceState createState() => _MyDeviceState();
 }
 
-class _MyDeviceState extends State<MyDevice> {
+class _MyDeviceState extends State<MyDevice> with AutomaticKeepAliveClientMixin {
+
+  @override
+  bool get wantKeepAlive => true;
+
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Container(
       child: _buildDevices(),
     );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_home/view/home/my_devices.dart';
+import 'package:my_home/view/home/my_project.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -53,7 +54,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin, Auto
             controller: _tabController,
             children: <Widget>[
               MyDevice(),
-              Text('My Projects'),
+              MyProject(),
             ],
           ),
         ),
