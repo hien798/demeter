@@ -41,7 +41,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                     children: <Widget>[
                       Container(
                         width: double.infinity,
-                        height: 140,
+                        height: scaleHeight(context, 140),
                         alignment: Alignment.bottomLeft,
                         padding: EdgeInsets.all(16),
                         color: Colors.black26,
@@ -51,10 +51,10 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                         ),
                       ),
                       Positioned(
-                        top: 36,
+                        top: scaleHeight(context, 36),
                         right: 16,
                         child: Container(
-                          width: 36,
+                          width: scaleWidth(context, 36),
                           child: FloatingActionButton(
                             onPressed: () {},
                             child: Icon(Icons.add, color: Colors.white),

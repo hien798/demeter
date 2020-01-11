@@ -1,5 +1,13 @@
 import 'package:flutter/material.dart';
 
+scaleWidth(BuildContext context, double width) {
+  return width*(MediaQuery.of(context).size.width/375);
+}
+
+scaleHeight(BuildContext context, double height) {
+  return height*(MediaQuery.of(context).size.height/812);
+}
+
 class BottomNaviTabBar extends StatefulWidget {
   final int initialIndex;
   final List<BottomNavigationBarItem> items;
@@ -71,7 +79,7 @@ class _AppbarTitleState extends State<AppbarTitle> {
     return Text(
       widget.titles[_currentIndex],
       style: TextStyle(
-        fontSize: 35,
+        fontSize: scaleWidth(context, 35),
         fontWeight: FontWeight.w600,
       ),
     );

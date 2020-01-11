@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_home/utils/widget_utils.dart';
 import 'package:my_home/view/home/my_devices.dart';
 import 'package:my_home/view/home/my_project.dart';
 
@@ -26,7 +27,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin, Auto
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Container(
-          height: 36,
+          height: scaleHeight(context, 36),
           padding: EdgeInsets.symmetric(horizontal: 10),
           child: TabBar(
             controller: _tabController,
@@ -37,13 +38,13 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin, Auto
               Tab(
                 child: Text(
                   'My Devices',
-                  style: TextStyle(fontSize: 18),
+                  style: TextStyle(fontSize: scaleWidth(context, 16)),
                 ),
               ),
               Tab(
                 child: Text(
                   'My Projects',
-                  style: TextStyle(fontSize: 18),
+                  style: TextStyle(fontSize: scaleWidth(context, 16)),
                 ),
               ),
             ],

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:my_home/utils/widget_utils.dart';
 
 class MyDevice extends StatefulWidget {
   @override
@@ -27,13 +28,13 @@ class _MyDeviceState extends State<MyDevice> with AutomaticKeepAliveClientMixin 
         ),
         Container(
           width: double.infinity,
-          height: 64,
-          margin: EdgeInsets.symmetric(vertical: 64, horizontal: 16),
+          height: scaleWidth(context, 64),
+          margin: EdgeInsets.symmetric(vertical: scaleWidth(context, 64), horizontal: 16),
           child: RaisedButton(
             onPressed: () {},
             child: Text(
               'Add Device',
-              style: TextStyle(fontSize: 18),
+              style: TextStyle(fontSize: scaleWidth(context, 16)),
             ),
             color: Colors.white.withOpacity(0.4),
             shape: RoundedRectangleBorder(
@@ -47,7 +48,7 @@ class _MyDeviceState extends State<MyDevice> with AutomaticKeepAliveClientMixin 
 
   Widget _buildDevices() {
     return ListView(
-      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 24),
+      padding: EdgeInsets.symmetric(horizontal: 8, vertical: scaleWidth(context, 24)),
       children: <Widget>[
         Row(
           children: List.generate(3, (index) => _buildSmallDevice()),
@@ -109,11 +110,11 @@ class _MyDeviceState extends State<MyDevice> with AutomaticKeepAliveClientMixin 
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 8),
               child: Text(
-                'Light',
+                'LightX',
                 style: TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.w500,
-                  fontSize: 18,
+                  fontSize: scaleWidth(context, 16),
                 ),
               ),
             ),
@@ -126,6 +127,7 @@ class _MyDeviceState extends State<MyDevice> with AutomaticKeepAliveClientMixin 
                 'On',
                 style: TextStyle(
                   color: Colors.grey,
+                  fontSize: scaleWidth(context, 14),
                 ),
               ),
             ),
@@ -148,8 +150,10 @@ class _MyDeviceState extends State<MyDevice> with AutomaticKeepAliveClientMixin 
         color: Colors.white,
       ),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
-          Expanded(
+          Container(
+            width: width,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
@@ -184,7 +188,7 @@ class _MyDeviceState extends State<MyDevice> with AutomaticKeepAliveClientMixin 
                       style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.w500,
-                        fontSize: 18,
+                        fontSize: scaleWidth(context, 16),
                       ),
                     ),
                   ),
@@ -197,6 +201,7 @@ class _MyDeviceState extends State<MyDevice> with AutomaticKeepAliveClientMixin 
                       'On',
                       style: TextStyle(
                         color: Colors.grey,
+                        fontSize: scaleWidth(context, 14),
                       ),
                     ),
                   ),
@@ -204,86 +209,97 @@ class _MyDeviceState extends State<MyDevice> with AutomaticKeepAliveClientMixin 
               ],
             ),
           ),
-          SizedBox(width: 16),
+//          SizedBox(width: 16),
           Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Container(
-                  height: width / 4,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text(
-                        'Light',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 18,
+            child: Container(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: <Widget>[
+                  Container(
+                    height: width / 4,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Widget>[
+                        Text(
+                          'Light',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.w500,
+                            fontSize: scaleWidth(context, 16),
+                          ),
                         ),
-                      ),
-                      Transform.scale(
-                        scale: switchScale,
-                        child: CupertinoSwitch(
-                          // width 59, height 39
-                          value: true,
-                          activeColor: Colors.green,
-                          onChanged: (value) {},
-                        ),
-                      )
-                    ],
+                        Container(
+                          width: width/2,
+                          child: Transform.scale(
+                            scale: switchScale,
+                            child: CupertinoSwitch(
+                              // width 59, height 39
+                              value: true,
+                              activeColor: Colors.green,
+                              onChanged: (value) {},
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
                   ),
-                ),
-                Container(
-                  height: width / 4,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text(
-                        'Pump',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 18,
+                  Container(
+                    height: width / 4,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Widget>[
+                        Text(
+                          'Pump',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.w500,
+                            fontSize: scaleWidth(context, 16),
+                          ),
                         ),
-                      ),
-                      Transform.scale(
-                        scale: switchScale,
-                        child: CupertinoSwitch(
-                          value: false,
-                          activeColor: Colors.green,
-                          onChanged: (value) {},
-                        ),
-                      )
-                    ],
+                        Container(
+                          width: width/2,
+                          child: Transform.scale(
+                            scale: switchScale,
+                            child: CupertinoSwitch(
+                              value: false,
+                              activeColor: Colors.green,
+                              onChanged: (value) {},
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
                   ),
-                ),
-                Container(
-                  height: width / 4,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text(
-                        'Fan',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 18,
+                  Container(
+                    height: width / 4,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Widget>[
+                        Text(
+                          'Fan',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.w500,
+                            fontSize: scaleWidth(context, 16),
+                          ),
                         ),
-                      ),
-                      Transform.scale(
-                        scale: switchScale,
-                        child: CupertinoSwitch(
-                          value: true,
-                          activeColor: Colors.green,
-                          onChanged: (value) {},
-                        ),
-                      )
-                    ],
+                        Container(
+                          width: width/2,
+                          child: Transform.scale(
+                            scale: switchScale,
+                            child: CupertinoSwitch(
+                              value: true,
+                              activeColor: Colors.green,
+                              onChanged: (value) {},
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ],
@@ -341,7 +357,7 @@ class _MyDeviceState extends State<MyDevice> with AutomaticKeepAliveClientMixin 
                       style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.w500,
-                        fontSize: 18,
+                        fontSize: scaleWidth(context, 16),
                       ),
                     ),
                   ),
@@ -354,6 +370,7 @@ class _MyDeviceState extends State<MyDevice> with AutomaticKeepAliveClientMixin 
                       'On',
                       style: TextStyle(
                         color: Colors.grey,
+                        fontSize: scaleWidth(context, 14),
                       ),
                     ),
                   ),
@@ -379,8 +396,8 @@ class _MyDeviceState extends State<MyDevice> with AutomaticKeepAliveClientMixin 
                     ),
                     child: Center(
                       child: Container(
-                        width: 40,
-                        height: 40,
+                        width: scaleWidth(context, 40),
+                        height: scaleWidth(context, 40),
                         child: Image.asset('assets/images/ic_play.png'),
                       ),
                     ),

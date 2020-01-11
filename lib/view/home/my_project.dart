@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_home/utils/widget_utils.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
 class MyProject extends StatefulWidget {
@@ -52,14 +53,14 @@ class _MyProjectState extends State<MyProject>
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontWeight: FontWeight.w600,
-                                  fontSize: 18,
+                                  fontSize: scaleWidth(context, 16),
                                 ),
                               ),
                               Text(
                                 '69%',
                                 style: TextStyle(
                                   color: Colors.black,
-                                  fontSize: 16,
+                                  fontSize: scaleWidth(context, 15),
                                 ),
                               )
                             ],
@@ -68,11 +69,10 @@ class _MyProjectState extends State<MyProject>
                         Expanded(
                           child: Container(
                             width: double.infinity,
-                            height: 5,
                             child: LinearPercentIndicator(
                               percent: 0.69,
                               padding: EdgeInsets.all(5),
-                              lineHeight: 10,
+                              lineHeight: scaleWidth(context, 10),
                               progressColor: Colors.green,
                               backgroundColor: Colors.grey.withOpacity(0.3),
                             ),
@@ -84,12 +84,12 @@ class _MyProjectState extends State<MyProject>
                               Text(
                                 'Start date  ',
                                 style:
-                                    TextStyle(color: Colors.grey, fontSize: 16),
+                                    TextStyle(color: Colors.grey, fontSize: scaleWidth(context, 15)),
                               ),
                               Text(
                                 '15/12/2018',
                                 style: TextStyle(
-                                    color: Colors.black, fontSize: 16),
+                                    color: Colors.black, fontSize: scaleWidth(context, 15)),
                               ),
                             ],
                           ),
@@ -102,18 +102,18 @@ class _MyProjectState extends State<MyProject>
                                   Text(
                                     'End date  ',
                                     style: TextStyle(
-                                        color: Colors.grey, fontSize: 16),
+                                        color: Colors.grey, fontSize: scaleWidth(context, 15)),
                                   ),
                                   Text(
                                     '31/12/2018',
                                     style: TextStyle(
-                                        color: Colors.black, fontSize: 16),
+                                        color: Colors.black, fontSize: scaleWidth(context, 15)),
                                   ),
                                 ],
                               ),
                               Spacer(),
                               Container(
-                                height: 18,
+                                height: scaleWidth(context, 18),
                                 padding: EdgeInsets.symmetric(
                                     horizontal: 8, vertical: 2),
                                 alignment: Alignment.center,
@@ -124,7 +124,7 @@ class _MyProjectState extends State<MyProject>
                                 child: Text(
                                   '8 days left',
                                   style: TextStyle(
-                                      fontSize: 13, color: Colors.white),
+                                      fontSize: scaleWidth(context, 13), color: Colors.white,),
                                 ),
                               ),
                             ],
@@ -140,6 +140,32 @@ class _MyProjectState extends State<MyProject>
         },
         itemCount: 3,
       ),
+    );
+  }
+
+  Widget _buildEmpty() {
+    return Column(
+      children: <Widget>[
+        Expanded(
+          child: Container(),
+        ),
+        Container(
+          width: double.infinity,
+          height: scaleWidth(context, 64),
+          margin: EdgeInsets.symmetric(vertical: scaleWidth(context, 64), horizontal: 16),
+          child: RaisedButton(
+            onPressed: () {},
+            child: Text(
+              'Add Project',
+              style: TextStyle(fontSize: scaleWidth(context, 16)),
+            ),
+            color: Colors.white.withOpacity(0.4),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
