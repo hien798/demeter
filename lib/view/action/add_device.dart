@@ -103,12 +103,10 @@ class _AddDeviceState extends State<AddDevice> with TickerProviderStateMixin {
                   ),
                   Expanded(
                     child: TabBarView(
+                      physics: NeverScrollableScrollPhysics(),
                       controller: _tabController,
                       children: _categories.map((cat) {
-                        return Text(
-                          'cat $cat',
-                          style: TextStyle(color: Colors.black),
-                        );
+                        return _buildCategory();
                       }).toList(),
                     ),
                   ),
@@ -117,6 +115,84 @@ class _AddDeviceState extends State<AddDevice> with TickerProviderStateMixin {
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _buildCategory() {
+    final size = MediaQuery.of(context).size;
+    final cats = ['Wifi Switch', '3G Switch'];
+    return Container(
+      padding: EdgeInsets.all(32),
+      child: ListView.builder(
+        itemCount: cats.length,
+        itemBuilder: (context, index) {
+          return Container(
+            height: scaleWidth(context, 160),
+            alignment: Alignment.center,
+            child: Column(
+              children: <Widget>[
+                Row(
+                  children: <Widget>[
+                    Expanded(
+                      child: Container(
+                        height: 0.3,
+                        color: Colors.grey,
+                      ),
+                    ),
+                    Text(
+                      '   ${cats[index]}   ',
+                      style: TextStyle(color: Colors.grey),
+                    ),
+                    Expanded(
+                      child: Container(
+                        height: 0.3,
+                        color: Colors.grey,
+                      ),
+                    ),
+                  ],
+                ),
+                Container(
+                  height: scaleWidth(context, 140),
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: 4,
+                    itemBuilder: (context, idx) {
+                      return Container(
+                        width: scaleWidth(context, 60),
+                        height: scaleWidth(context, 140),
+                        margin: EdgeInsets.only(
+                            left: idx == 0 ? 0 : scaleWidth(context, 20)),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Container(
+                              width: scaleWidth(context, 40),
+                              height: scaleWidth(context, 40),
+                              margin: EdgeInsets.symmetric(
+                                  vertical: scaleWidth(context, 10)),
+                              child: Image.asset('assets/images/switch.jpg'),
+                            ),
+                            Container(
+                              alignment: Alignment.center,
+                              child: Text(
+                                'Wifi Socketttttttttttxxx',
+                                style: TextStyle(color: Colors.grey),
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ],
+            ),
+          );
+        },
       ),
     );
   }
