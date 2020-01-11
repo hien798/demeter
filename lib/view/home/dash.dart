@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_home/utils/widget_utils.dart';
+import 'package:my_home/view/home/home.dart';
 
 class Dashboard extends StatefulWidget {
   @override
@@ -35,22 +36,34 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
               ),
               child: Column(
                 children: <Widget>[
-                  AppBar(
-                    backgroundColor: Colors.transparent,
-                    title: AppbarTitle(
+                  Container(
+                    width: double.infinity,
+                    height: 140,
+                    alignment: Alignment.bottomLeft,
+                    padding: EdgeInsets.all(16),
+                    color: Colors.black26,
+                    child: AppbarTitle(
                       controller: _tabController,
                       titles: tabs.map((data) => data.title).toList(),
                     ),
-                    centerTitle: false,
                   ),
                   Expanded(
                     child: Container(
                       child: TabBarView(
                         controller: _tabController,
                         physics: NeverScrollableScrollPhysics(),
-                        children: tabs
-                            .map((data) => Center(child: Text(data.title)))
-                            .toList(),
+                        children: <Widget>[
+                          HomePage(),
+                          Center(
+                            child: Text('Store'),
+                          ),
+                          Center(
+                            child: Text('Notification'),
+                          ),
+                          Center(
+                            child: Text('Account'),
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -63,9 +76,9 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
       bottomNavigationBar: BottomNaviTabBar(
         items: tabs
             .map((data) => BottomNavigationBarItem(
-          icon: Icon(data.iconData),
-          title: Text(data.title),
-        ))
+                  icon: Icon(data.iconData),
+                  title: Text(data.title),
+                ))
             .toList(),
         initialIndex: _tabController.index,
         onTap: (index) {
