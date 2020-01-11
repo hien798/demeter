@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_home/view/action/add_device.dart';
 import 'package:my_home/view/home/dash.dart';
 import 'package:my_home/view/home/home.dart';
 import 'package:my_home/view/login/login.dart';
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         brightness: Brightness.dark,
       ),
-      home: Dashboard(),
+      home: AddDevice(),
     );
   }
 }
