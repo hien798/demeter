@@ -119,7 +119,7 @@ class _MyProjectState extends State<MyProject>
                                 alignment: Alignment.center,
                                 decoration: BoxDecoration(
                                   color: Colors.green,
-                                  borderRadius: BorderRadius.circular(8),
+                                  borderRadius: BorderRadius.circular(9),
                                 ),
                                 child: Text(
                                   '8 days left',
