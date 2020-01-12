@@ -77,10 +77,13 @@ class _TimerState extends State<Timer> {
                   '$remain minutes',
                   style: TextStyle(color: Colors.black, fontSize: scaleWidth(context, 24)),
                 ),
-                CupertinoSwitch(
-                  onChanged: (value) {},
-                  activeColor: Colors.green,
-                  value: status,
+                Transform.scale(
+                  scale: scaleWidth(context, 30)/39,
+                  child: CupertinoSwitch(
+                    onChanged: (value) {},
+                    activeColor: Colors.green,
+                    value: status,
+                  ),
                 ),
               ],
             ),
@@ -88,7 +91,7 @@ class _TimerState extends State<Timer> {
           Expanded(
             child: Text(
                 'Countdown lable\nto ${status ? 'ON' : 'OFF'}',
-                style: TextStyle(color: Colors.black),
+                style: TextStyle(color: Colors.black, fontSize: scaleWidth(context, 12),),
             ),
           ),
           Container(
