@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_home/view/action/add_device.dart';
 import 'package:my_home/view/action/add_project.dart';
+import 'package:my_home/view/device/sensor.dart';
 import 'package:my_home/view/device/timer.dart';
 import 'package:my_home/view/home/dash.dart';
 import 'package:my_home/view/home/home.dart';
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         brightness: Brightness.dark,
       ),
-      home: Timer(),
+      home: Sensor(),
     );
   }
 }
