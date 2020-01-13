@@ -2,12 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_home/utils/widget_utils.dart';
 
-class Pump extends StatefulWidget {
+class DFamily extends StatefulWidget {
   @override
-  _PumpState createState() => _PumpState();
+  _DFamilyState createState() => _DFamilyState();
 }
 
-class _PumpState extends State<Pump> {
+class _DFamilyState extends State<DFamily> {
   @override
   void initState() {
     super.initState();
@@ -36,32 +36,36 @@ class _PumpState extends State<Pump> {
         ],
       ),
       backgroundColor: Colors.white,
-      body: Column(
-        children: <Widget>[
-          SizedBox(height: scaleWidth(context, 106)),
-          Container(
-            margin: EdgeInsets.all(24),
-            width: scaleWidth(context, 248),
-            height: scaleWidth(context, 248),
-            decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage('assets/images/pump.png'),
-                  fit: BoxFit.cover,
-                ),
-                borderRadius: BorderRadius.circular(scaleWidth(context, 30))),
+      body:
+    );
+  }
+
+  Widget _buildDevice(String name) {
+    return Column(
+      children: <Widget>[
+        SizedBox(height: scaleWidth(context, 106)),
+        Container(
+          margin: EdgeInsets.all(24),
+          width: scaleWidth(context, 248),
+          height: scaleWidth(context, 248),
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/images/pump.png'),
+                fit: BoxFit.cover,
+              ),
+              borderRadius: BorderRadius.circular(scaleWidth(context, 30))),
+        ),
+        Expanded(
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Expanded(child: _buildPumpDevice('History', Icons.history)),
+              Expanded(child: _buildPumpDevice('Timer', Icons.timer)),
+              Expanded(child: _buildPumpDevice('Alarm', Icons.alarm)),
+            ],
           ),
-          Expanded(
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Expanded(child: _buildPumpDevice('History', Icons.history)),
-                Expanded(child: _buildPumpDevice('Timer', Icons.timer)),
-                Expanded(child: _buildPumpDevice('Alarm', Icons.alarm)),
-              ],
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 

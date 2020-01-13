@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_home/view/action/add_device.dart';
 import 'package:my_home/view/action/add_project.dart';
 import 'package:my_home/view/device/alarm.dart';
+import 'package:my_home/view/device/dfamily.dart';
 import 'package:my_home/view/device/pump.dart';
 import 'package:my_home/view/device/sensor.dart';
 import 'package:my_home/view/device/timer.dart';
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         brightness: Brightness.dark,
       ),
-      home: Pump(),
+      home: DFamily(),
     );
   }
 }
