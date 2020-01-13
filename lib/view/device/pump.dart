@@ -25,7 +25,9 @@ class _PumpState extends State<Pump> {
         centerTitle: true,
         actions: <Widget>[
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              _showBottomSheet();
+            },
             padding: EdgeInsets.zero,
             icon: Icon(
               Icons.more_vert,
@@ -100,4 +102,75 @@ class _PumpState extends State<Pump> {
       ),
     );
   }
+
+  void _showBottomSheet() {
+    showModalBottomSheet(
+        context: context,
+        backgroundColor: Colors.white,
+        builder: (ctx) {
+          return Container(
+            child: Wrap(
+              children: <Widget>[
+                ListTile(
+                  leading: Icon(Icons.share, color: Colors.black),
+                  title: Text(
+                    'Share Device',
+                    style: TextStyle(
+                        color: Colors.black, fontSize: scaleWidth(context, 16)),
+                  ),
+                  onTap: () {},
+                ),
+                ListTile(
+                  leading: Icon(Icons.settings_remote, color: Colors.black),
+                  title: Text(
+                    'General Setting',
+                    style: TextStyle(
+                        color: Colors.black, fontSize: scaleWidth(context, 16)),
+                  ),
+                  onTap: () {},
+                ),
+                ListTile(
+                  leading:
+                  Icon(Icons.settings_input_antenna, color: Colors.black),
+                  title: Text(
+                    'Plugin Sensor',
+                    style: TextStyle(
+                        color: Colors.black, fontSize: scaleWidth(context, 16)),
+                  ),
+                  onTap: () {},
+                ),
+                ListTile(
+                  leading: Icon(Icons.help_outline, color: Colors.black),
+                  title: Text(
+                    'Help',
+                    style: TextStyle(
+                        color: Colors.black, fontSize: scaleWidth(context, 16)),
+                  ),
+                  onTap: () {},
+                ),
+                Container(
+                  height: 0.5,
+                  margin: EdgeInsets.symmetric(horizontal: 16),
+                  color: Colors.grey,
+                ),
+                ListTile(
+                  leading: Icon(Icons.close, color: Colors.black),
+                  title: Text(
+                    'Cancel',
+                    style: TextStyle(
+                        color: Colors.black, fontSize: scaleWidth(context, 16)),
+                  ),
+                  onTap: () {
+                    print(MediaQuery.of(context).padding.bottom);
+                  },
+                ),
+                Container(
+                  height: 34,
+                ), // safe area padding bottom
+              ],
+            ),
+          );
+        });
+  }
+
 }
