@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:my_home/utils/color_utils.dart';
 import 'package:my_home/utils/widget_utils.dart';
 
 class SelectWifi extends StatefulWidget {
@@ -25,7 +26,78 @@ class _SelectWifiState extends State<SelectWifi> {
         centerTitle: true,
       ),
       backgroundColor: Colors.white,
-      body: Container(),
+      body: Container(
+        child: Column(
+          children: <Widget>[
+            Expanded(
+              child: ListView(
+                padding: EdgeInsets.all(scaleWidth(context, 24)),
+                children: <Widget>[
+                  InkWell(
+                    onTap: () {},
+                    child: RowData(
+                      leading: Text(
+                        'D-SHOWCASE',
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: scaleWidth(context, 16)),
+                      ),
+                      trailing: Container(
+                        width: scaleWidth(context, 100),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: <Widget>[
+                            Text(
+                              'Login',
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: scaleWidth(context, 16)),
+                            ),
+                            Icon(Icons.chevron_right, color: Colors.black),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {},
+                    child: RowData(
+                      leading: Text(
+                        'Other...',
+                        style: TextStyle(
+                          color: Colors.red,
+                          fontSize: scaleWidth(context, 16),
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      hasUnderLine: false,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.only(
+                top: scaleWidth(context, 8),
+                bottom: scaleWidth(context, 64),
+              ),
+              child: FlatButton(
+                onPressed: () {
+                  print('create project');
+                },
+                child: Text(
+                  'Next',
+                  style: TextStyle(
+                    color: selectedColor,
+                    fontSize: scaleWidth(context, 17),
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

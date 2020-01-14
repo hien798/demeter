@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:my_home/utils/color_utils.dart';
 import 'package:my_home/utils/widget_utils.dart';
-
-final Color selectedColor = Colors.green.shade800;
-final Color unselectedColor = Colors.grey.shade600;
 
 class AddProject extends StatefulWidget {
   @override

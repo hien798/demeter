@@ -98,7 +98,7 @@ class _SensorState extends State<Sensor> {
             ],
           ),
         ),
-        _buildDevider(),
+        buildDivider(),
         Expanded(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -117,7 +117,7 @@ class _SensorState extends State<Sensor> {
             ],
           ),
         ),
-        _buildDevider(),
+        buildDivider(),
         Expanded(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -135,16 +135,8 @@ class _SensorState extends State<Sensor> {
             ],
           ),
         ),
-        _buildDevider(),
+        buildDivider(),
       ],
-    );
-  }
-
-  Widget _buildDevider() {
-    return Container(
-      width: double.infinity,
-      height: 0.8,
-      color: Colors.grey,
     );
   }
 }

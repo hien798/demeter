@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:my_home/view/action/add_alarm.dart';
 import 'package:my_home/view/action/add_device.dart';
 import 'package:my_home/view/action/add_project.dart';
+import 'package:my_home/view/action/alarm_repeat.dart';
+import 'package:my_home/view/action/edit_project.dart';
+import 'package:my_home/view/action/select_wifi.dart';
 import 'package:my_home/view/device/alarm.dart';
 import 'package:my_home/view/device/dfamily.dart';
 import 'package:my_home/view/device/history.dart';
@@ -24,7 +28,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         brightness: Brightness.dark,
       ),
-      home: Pump(),
+      home: EditProject(),
     );
   }
 }
