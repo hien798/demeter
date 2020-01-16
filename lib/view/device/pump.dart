@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:my_home/utils/navigator.dart';
 import 'package:my_home/utils/widget_utils.dart';
 
 class Pump extends StatefulWidget {
@@ -56,9 +57,30 @@ class _PumpState extends State<Pump> {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                Expanded(child: _buildPumpDevice('History', Icons.history)),
-                Expanded(child: _buildPumpDevice('Timer', Icons.timer)),
-                Expanded(child: _buildPumpDevice('Alarm', Icons.alarm)),
+                Expanded(
+                    child: _buildPumpDevice(
+                  'History',
+                  Icons.history,
+                  onPress: () {
+                    push(context, Router.history);
+                  },
+                )),
+                Expanded(
+                    child: _buildPumpDevice(
+                  'Timer',
+                  Icons.timer,
+                  onPress: () {
+                    push(context, Router.timer);
+                  },
+                )),
+                Expanded(
+                    child: _buildPumpDevice(
+                  'Alarm',
+                  Icons.alarm,
+                  onPress: () {
+                    push(context, Router.alarm);
+                  },
+                )),
               ],
             ),
           ),
@@ -67,7 +89,7 @@ class _PumpState extends State<Pump> {
     );
   }
 
-  Widget _buildPumpDevice(String name, IconData icon) {
+  Widget _buildPumpDevice(String name, IconData icon, {Function onPress}) {
     final size = MediaQuery.of(context).size;
     return Container(
       child: Column(
@@ -78,15 +100,17 @@ class _PumpState extends State<Pump> {
             padding: EdgeInsets.all(scaleWidth(context, 24)),
             child: OutlineButton(
               padding: EdgeInsets.zero,
-              onPressed: () {},
+              onPressed: () {
+                if (onPress != null) onPress();
+              },
               borderSide: BorderSide(color: Colors.grey),
               shape: CircleBorder(),
               child: Container(
                   child: Icon(
-                    icon,
-                    color: Colors.black,
-                    size: scaleWidth(context, 50),
-                  )),
+                icon,
+                color: Colors.black,
+                size: scaleWidth(context, 50),
+              )),
             ),
           ),
           Container(
@@ -127,17 +151,21 @@ class _PumpState extends State<Pump> {
                     style: TextStyle(
                         color: Colors.black, fontSize: scaleWidth(context, 16)),
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    push(context, Router.device_info);
+                  },
                 ),
                 ListTile(
                   leading:
-                  Icon(Icons.settings_input_antenna, color: Colors.black),
+                      Icon(Icons.settings_input_antenna, color: Colors.black),
                   title: Text(
                     'Plugin Sensor',
                     style: TextStyle(
                         color: Colors.black, fontSize: scaleWidth(context, 16)),
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    push(context, Router.sensor);
+                  },
                 ),
                 ListTile(
                   leading: Icon(Icons.help_outline, color: Colors.black),
@@ -161,7 +189,7 @@ class _PumpState extends State<Pump> {
                         color: Colors.black, fontSize: scaleWidth(context, 16)),
                   ),
                   onTap: () {
-                    print(MediaQuery.of(context).padding.bottom);
+                    pop(context);
                   },
                 ),
                 Container(
@@ -172,5 +200,4 @@ class _PumpState extends State<Pump> {
           );
         });
   }
-
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_home/utils/color_utils.dart';
+import 'package:my_home/utils/navigator.dart';
 import 'package:my_home/utils/widget_utils.dart';
 
 class SelectWifi extends StatefulWidget {
@@ -83,7 +84,7 @@ class _SelectWifiState extends State<SelectWifi> {
               ),
               child: FlatButton(
                 onPressed: () {
-                  print('create project');
+                  push(context, Router.register_device);
                 },
                 child: Text(
                   'Next',

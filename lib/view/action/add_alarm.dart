@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_home/utils/color_utils.dart';
+import 'package:my_home/utils/navigator.dart';
 import 'package:my_home/utils/widget_utils.dart';
 
 class AddAlarm extends StatefulWidget {
@@ -69,7 +70,7 @@ class _AddAlarmState extends State<AddAlarm> {
                           fontSize: scaleWidth(context, 16)),
                     ),
                     trailing: Transform.scale(
-                      scale: scaleWidth(context, 30)/39,
+                      scale: scaleWidth(context, 30) / 39,
                       child: CupertinoSwitch(
                         onChanged: (value) {},
                         value: true,
@@ -94,7 +95,9 @@ class _AddAlarmState extends State<AddAlarm> {
                     ),
                   ),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      push(context, Router.alarm_repeat);
+                    },
                     child: RowData(
                       leading: Text(
                         'Repeat',
@@ -129,7 +132,7 @@ class _AddAlarmState extends State<AddAlarm> {
               ),
               child: FlatButton(
                 onPressed: () {
-                  print('create project');
+                  pop(context);
                 },
                 child: Text(
                   'Save Alarm',

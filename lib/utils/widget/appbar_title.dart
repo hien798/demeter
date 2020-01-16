@@ -33,6 +33,7 @@ class _AppbarTitleState extends State<AppbarTitle> {
     return Text(
       widget.titles[_currentIndex],
       style: TextStyle(
+        color: Colors.white,
         fontSize: scaleWidth(context, 35),
         fontWeight: FontWeight.w600,
       ),

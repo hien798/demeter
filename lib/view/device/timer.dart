@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:my_home/utils/navigator.dart';
 import 'package:my_home/utils/widget_utils.dart';
 
 class Timer extends StatefulWidget {
@@ -25,21 +26,30 @@ class _TimerState extends State<Timer> {
         centerTitle: true,
         actions: <Widget>[
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              push(context, Router.add_timer);
+            },
             padding: EdgeInsets.zero,
-            icon: Icon(Icons.add, color: Colors.grey.shade700, size: scaleWidth(context, 32),),
+            icon: Icon(
+              Icons.add,
+              color: Colors.grey.shade700,
+              size: scaleWidth(context, 32),
+            ),
           ),
         ],
       ),
       backgroundColor: Colors.white,
       body: Container(
-        padding: EdgeInsets.symmetric(vertical: scaleWidth(context, 24), horizontal: scaleWidth(context, 24)),
+        padding: EdgeInsets.symmetric(
+            vertical: scaleWidth(context, 24),
+            horizontal: scaleWidth(context, 24)),
         child: Column(
           children: <Widget>[
             Container(
               child: Text(
                 'Device will OFF in',
-                style: TextStyle(color: Colors.black, fontSize: scaleWidth(context, 18)),
+                style: TextStyle(
+                    color: Colors.black, fontSize: scaleWidth(context, 18)),
               ),
             ),
             Container(
@@ -75,10 +85,11 @@ class _TimerState extends State<Timer> {
               children: <Widget>[
                 Text(
                   '$remain minutes',
-                  style: TextStyle(color: Colors.black, fontSize: scaleWidth(context, 24)),
+                  style: TextStyle(
+                      color: Colors.black, fontSize: scaleWidth(context, 24)),
                 ),
                 Transform.scale(
-                  scale: scaleWidth(context, 30)/39,
+                  scale: scaleWidth(context, 30) / 39,
                   child: CupertinoSwitch(
                     onChanged: (value) {},
                     activeColor: Colors.green,
@@ -90,8 +101,11 @@ class _TimerState extends State<Timer> {
           ),
           Expanded(
             child: Text(
-                'Countdown lable\nto ${status ? 'ON' : 'OFF'}',
-                style: TextStyle(color: Colors.black, fontSize: scaleWidth(context, 12),),
+              'Countdown lable\nto ${status ? 'ON' : 'OFF'}',
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: scaleWidth(context, 12),
+              ),
             ),
           ),
           Container(

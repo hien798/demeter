@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_home/utils/color_utils.dart';
+import 'package:my_home/utils/navigator.dart';
 import 'package:my_home/utils/widget_utils.dart';
 
 class AddBluetooth extends StatefulWidget {
@@ -117,7 +118,9 @@ class _AddBluetoothState extends State<AddBluetooth> {
     return Column(
       children: <Widget>[
         ListTile(
-          onTap: () {},
+          onTap: () {
+            push(context, Router.add_device_info);
+          },
           title: Text(
             name,
             style: TextStyle(

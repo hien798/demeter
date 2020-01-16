@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:my_home/utils/navigator.dart';
 import 'package:my_home/utils/widget_utils.dart';
 
 class MyDevice extends StatefulWidget {
@@ -7,8 +8,8 @@ class MyDevice extends StatefulWidget {
   _MyDeviceState createState() => _MyDeviceState();
 }
 
-class _MyDeviceState extends State<MyDevice> with AutomaticKeepAliveClientMixin {
-
+class _MyDeviceState extends State<MyDevice>
+    with AutomaticKeepAliveClientMixin {
   @override
   bool get wantKeepAlive => true;
 
@@ -29,7 +30,8 @@ class _MyDeviceState extends State<MyDevice> with AutomaticKeepAliveClientMixin 
         Container(
           width: double.infinity,
           height: scaleWidth(context, 64),
-          margin: EdgeInsets.symmetric(vertical: scaleWidth(context, 64), horizontal: 16),
+          margin: EdgeInsets.symmetric(
+              vertical: scaleWidth(context, 64), horizontal: 16),
           child: RaisedButton(
             onPressed: () {},
             child: Text(
@@ -48,7 +50,8 @@ class _MyDeviceState extends State<MyDevice> with AutomaticKeepAliveClientMixin 
 
   Widget _buildDevices() {
     return ListView(
-      padding: EdgeInsets.symmetric(horizontal: 8, vertical: scaleWidth(context, 24)),
+      padding: EdgeInsets.symmetric(
+          horizontal: 8, vertical: scaleWidth(context, 24)),
       children: <Widget>[
         Row(
           children: List.generate(3, (index) => _buildSmallDevice()),
@@ -89,7 +92,11 @@ class _MyDeviceState extends State<MyDevice> with AutomaticKeepAliveClientMixin 
               children: <Widget>[
                 Expanded(
                   flex: 1,
-                  child: Image.asset('assets/images/light.jpg'),
+                  child: InkWell(
+                      onTap: () {
+                        push(context, Router.pump);
+                      },
+                      child: Image.asset('assets/images/light.jpg')),
                 ),
                 Expanded(
                   flex: 1,
@@ -163,7 +170,11 @@ class _MyDeviceState extends State<MyDevice> with AutomaticKeepAliveClientMixin 
                     children: <Widget>[
                       Expanded(
                         flex: 1,
-                        child: Image.asset('assets/images/light.jpg'),
+                        child: InkWell(
+                            onTap: () {
+                              push(context, Router.dfamily);
+                            },
+                            child: Image.asset('assets/images/light.jpg')),
                       ),
                       Expanded(
                         flex: 1,
@@ -230,7 +241,7 @@ class _MyDeviceState extends State<MyDevice> with AutomaticKeepAliveClientMixin 
                           ),
                         ),
                         Container(
-                          width: width/2,
+                          width: width / 2,
                           child: Transform.scale(
                             scale: switchScale,
                             child: CupertinoSwitch(
@@ -258,7 +269,7 @@ class _MyDeviceState extends State<MyDevice> with AutomaticKeepAliveClientMixin 
                           ),
                         ),
                         Container(
-                          width: width/2,
+                          width: width / 2,
                           child: Transform.scale(
                             scale: switchScale,
                             child: CupertinoSwitch(
@@ -285,7 +296,7 @@ class _MyDeviceState extends State<MyDevice> with AutomaticKeepAliveClientMixin 
                           ),
                         ),
                         Container(
-                          width: width/2,
+                          width: width / 2,
                           child: Transform.scale(
                             scale: switchScale,
                             child: CupertinoSwitch(

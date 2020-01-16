@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:my_home/utils/navigator.dart';
 import 'package:my_home/utils/widget_utils.dart';
 
 class Alarm extends StatefulWidget {
@@ -25,7 +26,9 @@ class _AlarmState extends State<Alarm> {
         centerTitle: true,
         actions: <Widget>[
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              push(context, Router.add_alarm);
+            },
             padding: EdgeInsets.zero,
             icon: Icon(
               Icons.add,

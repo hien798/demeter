@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_home/utils/color_utils.dart';
+import 'package:my_home/utils/navigator.dart';
 import 'package:my_home/utils/widget_utils.dart';
 
 class DeviceInfo extends StatefulWidget {
@@ -168,7 +169,7 @@ class _DeviceInfoState extends State<DeviceInfo> {
               ),
               child: FlatButton(
                 onPressed: () {
-                  print('create project');
+                  pop(context);
                 },
                 child: Text(
                   'Save Setting',

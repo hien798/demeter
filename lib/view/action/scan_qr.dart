@@ -2,12 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_home/utils/widget_utils.dart';
 
-class Automation extends StatefulWidget {
+class ScanQR extends StatefulWidget {
   @override
-  _AutomationState createState() => _AutomationState();
+  _ScanQRState createState() => _ScanQRState();
 }
 
-class _AutomationState extends State<Automation> {
+class _ScanQRState extends State<ScanQR> {
   @override
   void initState() {
     super.initState();

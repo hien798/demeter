@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_home/utils/color_utils.dart';
+import 'package:my_home/utils/navigator.dart';
 import 'package:my_home/utils/widget_utils.dart';
 
 enum ConnectedStatus { connecting, connected, failed }
@@ -68,7 +69,7 @@ class _RegisterDeviceState extends State<RegisterDevice> {
               ),
               child: FlatButton(
                 onPressed: () {
-                  print('create project');
+                  push(context, Router.pump);
                 },
                 child: Text(
                   'Use Now',

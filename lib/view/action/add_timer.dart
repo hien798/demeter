@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_home/utils/color_utils.dart';
+import 'package:my_home/utils/navigator.dart';
 import 'package:my_home/utils/widget_utils.dart';
 
 class AddTimer extends StatefulWidget {
@@ -116,7 +117,7 @@ class _AddTimerState extends State<AddTimer> {
               ),
               child: FlatButton(
                 onPressed: () {
-                  print('create project');
+                  pop(context);
                 },
                 child: Text(
                   'Save Timer',

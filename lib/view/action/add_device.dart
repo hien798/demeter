@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_home/utils/navigator.dart';
 import 'package:my_home/utils/pinned_side_menu.dart';
 import 'package:my_home/utils/widget_utils.dart';
 
@@ -34,12 +35,16 @@ class _AddDeviceState extends State<AddDevice> with TickerProviderStateMixin {
         centerTitle: true,
         actions: <Widget>[
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              push(context, Router.add_bluetooth);
+            },
             padding: EdgeInsets.zero,
             icon: Icon(Icons.bluetooth, color: Colors.black),
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              push(context, Router.scan_qr);
+            },
             padding: EdgeInsets.zero,
             icon: ImageIcon(
               AssetImage('assets/images/ic_qr.png'),
@@ -166,12 +171,17 @@ class _AddDeviceState extends State<AddDevice> with TickerProviderStateMixin {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            Container(
-                              width: scaleWidth(context, 40),
-                              height: scaleWidth(context, 40),
-                              margin: EdgeInsets.symmetric(
-                                  vertical: scaleWidth(context, 10)),
-                              child: Image.asset('assets/images/switch.jpg'),
+                            InkWell(
+                              onTap: () {
+                                push(context, Router.add_device_info);
+                              },
+                              child: Container(
+                                width: scaleWidth(context, 40),
+                                height: scaleWidth(context, 40),
+                                margin: EdgeInsets.symmetric(
+                                    vertical: scaleWidth(context, 10)),
+                                child: Image.asset('assets/images/switch.jpg'),
+                              ),
                             ),
                             Container(
                               alignment: Alignment.center,

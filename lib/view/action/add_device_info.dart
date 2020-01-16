@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_home/utils/color_utils.dart';
+import 'package:my_home/utils/navigator.dart';
 import 'package:my_home/utils/widget_utils.dart';
 
 class AddDeviceInfo extends StatefulWidget {
@@ -103,7 +104,7 @@ class _AddDeviceInfoState extends State<AddDeviceInfo> {
               ),
               child: FlatButton(
                 onPressed: () {
-                  print('create project');
+                  push(context, Router.select_wifi);
                 },
                 child: Text(
                   'Next',

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:my_home/utils/navigator.dart';
 import 'package:my_home/utils/widget_utils.dart';
 
 class DFamily extends StatefulWidget {
@@ -164,7 +165,9 @@ class _DFamilyState extends State<DFamily> {
                     style: TextStyle(
                         color: Colors.black, fontSize: scaleWidth(context, 16)),
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    push(context, Router.automation);
+                  },
                 ),
                 ListTile(
                   leading: Icon(Icons.share, color: Colors.black),
@@ -192,7 +195,9 @@ class _DFamilyState extends State<DFamily> {
                     style: TextStyle(
                         color: Colors.black, fontSize: scaleWidth(context, 16)),
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    push(context, Router.sensor);
+                  },
                 ),
                 ListTile(
                   leading: Icon(Icons.help_outline, color: Colors.black),
@@ -216,7 +221,7 @@ class _DFamilyState extends State<DFamily> {
                         color: Colors.black, fontSize: scaleWidth(context, 16)),
                   ),
                   onTap: () {
-                    print(MediaQuery.of(context).padding.bottom);
+                    pop(context);
                   },
                 ),
                 Container(
