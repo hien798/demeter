@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_home/utils/navigator.dart';
+import 'package:my_home/utils/path.dart';
 import 'package:my_home/utils/widget_utils.dart';
 
 class MyDevice extends StatefulWidget {
@@ -406,10 +407,23 @@ class _MyDeviceState extends State<MyDevice>
                       ),
                     ),
                     child: Center(
-                      child: Container(
-                        width: scaleWidth(context, 40),
-                        height: scaleWidth(context, 40),
-                        child: Image.asset('assets/images/ic_play.png'),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(scaleWidth(context, 20)),
+                        child: Container(
+                          width: scaleWidth(context, 40),
+                          height: scaleWidth(context, 40),
+                          color: Colors.green,
+                          child: Center(
+                            child: Container(
+                              width: scaleWidth(context, 30),
+                              height: scaleWidth(context, 30),
+                              child: InkWell(
+                                onTap: () {},
+                                child: Image.asset(ImagePath.ic_play_button),
+                              ),
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                   ),

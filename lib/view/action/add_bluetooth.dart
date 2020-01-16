@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_home/utils/color_utils.dart';
 import 'package:my_home/utils/navigator.dart';
+import 'package:my_home/utils/path.dart';
 import 'package:my_home/utils/widget_utils.dart';
 
 class AddBluetooth extends StatefulWidget {
@@ -57,7 +58,10 @@ class _AddBluetoothState extends State<AddBluetooth> {
             ),
             SizedBox(height: scaleWidth(context, 16)),
             devices.length > 0
-                ? CircularProgressIndicator()
+                ? ImageIcon(
+                    AssetImage(ImagePath.ic_spinner_of_dots),
+                    color: unselectedColor,
+                  )
                 : Container(
                     padding: EdgeInsets.only(
                       top: scaleWidth(context, 16),

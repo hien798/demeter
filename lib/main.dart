@@ -5,6 +5,7 @@ import 'package:my_home/view/action/add_alarm.dart';
 import 'package:my_home/view/action/add_bluetooth.dart';
 import 'package:my_home/view/action/add_device.dart';
 import 'package:my_home/view/action/add_device_info.dart';
+import 'package:my_home/view/action/add_project.dart';
 import 'package:my_home/view/action/add_timer.dart';
 import 'package:my_home/view/action/alarm_repeat.dart';
 import 'package:my_home/view/action/automation.dart';

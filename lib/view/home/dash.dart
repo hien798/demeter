@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:my_home/utils/navigator.dart';
+import 'package:my_home/utils/path.dart';
 import 'package:my_home/utils/widget/appbar_title.dart';
 import 'package:my_home/utils/widget/bottom_navi_tabbar.dart';
 import 'package:my_home/utils/widget_utils.dart';
@@ -14,10 +15,10 @@ class Dashboard extends StatefulWidget {
 class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
   TabController _tabController;
   final tabs = [
-    TabData('Home', Icons.home),
-    TabData('Store', Icons.local_grocery_store),
-    TabData('Notification', Icons.notifications),
-    TabData('Account', Icons.person),
+    TabData('Home', ImagePath.ic_home),
+    TabData('Store', ImagePath.ic_shopping_store_cart),
+    TabData('Notification', ImagePath.ic_notification),
+    TabData('Account', ImagePath.ic_user),
   ];
 
   @override
@@ -31,8 +32,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-            image: AssetImage('assets/images/background.jpeg'),
-            fit: BoxFit.cover),
+            image: AssetImage(ImagePath.bg_home), fit: BoxFit.cover),
       ),
       child: Scaffold(
         appBar: PreferredSize(
@@ -108,8 +108,8 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
         bottomNavigationBar: BottomNaviTabBar(
           items: tabs
               .map((data) => BottomNavigationBarItem(
-                    backgroundColor: Colors.black,
-                    icon: Icon(data.iconData),
+                    backgroundColor: Colors.black54,
+                    icon: ImageIcon(AssetImage(data.icon)),
                     title: Text(data.title),
                   ))
               .toList(),
@@ -125,7 +125,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
 
 class TabData {
   final String title;
-  final IconData iconData;
+  final String icon;
 
-  TabData(this.title, this.iconData);
+  TabData(this.title, this.icon);
 }

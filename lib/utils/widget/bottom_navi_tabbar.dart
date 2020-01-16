@@ -24,7 +24,10 @@ class _BottomNaviTabBarState extends State<BottomNaviTabBar> {
 
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
+    return BottomNavigationBar(type: BottomNavigationBarType.fixed,
+      backgroundColor: Colors.black54,
+      selectedItemColor: Colors.white,
+      unselectedItemColor: Colors.grey,
       items: widget.items,
       currentIndex: _index,
       onTap: (index) {

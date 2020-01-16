@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_home/utils/navigator.dart';
+import 'package:my_home/utils/path.dart';
 import 'package:my_home/utils/pinned_side_menu.dart';
 import 'package:my_home/utils/widget_utils.dart';
 
@@ -39,7 +40,7 @@ class _AddDeviceState extends State<AddDevice> with TickerProviderStateMixin {
               push(context, Router.add_bluetooth);
             },
             padding: EdgeInsets.zero,
-            icon: Icon(Icons.bluetooth, color: Colors.black),
+            icon: ImageIcon(AssetImage(ImagePath.ic_bluetooth), color: Colors.black),
           ),
           IconButton(
             onPressed: () {
@@ -47,7 +48,7 @@ class _AddDeviceState extends State<AddDevice> with TickerProviderStateMixin {
             },
             padding: EdgeInsets.zero,
             icon: ImageIcon(
-              AssetImage('assets/images/ic_qr.png'),
+              AssetImage(ImagePath.ic_scan),
               color: Colors.black,
             ),
           ),

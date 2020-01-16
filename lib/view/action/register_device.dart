@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_home/utils/color_utils.dart';
 import 'package:my_home/utils/navigator.dart';
+import 'package:my_home/utils/path.dart';
 import 'package:my_home/utils/widget_utils.dart';
 
 enum ConnectedStatus { connecting, connected, failed }
@@ -104,22 +105,23 @@ class _RegisterDeviceState extends State<RegisterDevice> {
   }
 
   Widget _buildLoadingIcon() {
-    return Transform.scale(
-      scale: 0.5,
-      child: Container(
-        margin: EdgeInsets.symmetric(
-          horizontal: scaleWidth(context, 12),
-        ),
-        child: CircularProgressIndicator(
-          backgroundColor: Colors.black87,
-        ),
+    return Container(
+      width: scaleWidth(context, 16),
+      height: scaleWidth(context, 16),
+      margin: EdgeInsets.symmetric(horizontal: scaleWidth(context, 16)),
+      child: ImageIcon(
+        AssetImage(ImagePath.ic_spinner_of_dots),
+        color: unselectedColor,
+        size: scaleWidth(context, 20),
       ),
     );
   }
 
   Widget _buildConnectedIcon() {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: scaleWidth(context, 18)),
+      width: scaleWidth(context, 16),
+      height: scaleWidth(context, 16),
+      margin: EdgeInsets.symmetric(horizontal: scaleWidth(context, 16)),
       child: Icon(
         Icons.check_circle,
         color: selectedColor,

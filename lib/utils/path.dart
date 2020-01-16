@@ -1,0 +1,50 @@
+class ImagePath {
+  static const String bg_login = 'assets/images/background/eberhard-grossgasteiger-1058664-unsplash.jpg';
+  static const String bg_home = 'assets/images/background/vietnam-2987692_1920.jpg';
+
+  static const String lg_app_icon = 'assets/images/logo/Apps-Icon.png';
+  static const String lg_demeter = 'assets/images/logo/LogoDemeter.png';
+  static const String lg_demeter_light = 'assets/images/logo/LogoDemeterPNG.png';
+
+  static const String ic_plant = 'assets/images/icon/001-plant.png';
+  static const String ic_mortarboard = 'assets/images/icon/002-mortarboard.png';
+  static const String ic_heart = 'assets/images/icon/003-heart.png';
+  static const String ic_water = 'assets/images/icon/003-water.png';
+  static const String ic_factory = 'assets/images/icon/004-factory.png';
+  static const String ic_smart_home = 'assets/images/icon/005-smart-home.png';
+  static const String ic_smart_energy = 'assets/images/icon/006-smart-energy.png';
+  static const String ic_add = 'assets/images/icon/add.png';
+  static const String ic_album = 'assets/images/icon/album.png';
+  static const String ic_arrow_down = 'assets/images/icon/arrow-down-sign-to-navigate.png';
+  static const String ic_bluetooth = 'assets/images/icon/bluetooth.png';
+  static const String ic_check_mark = 'assets/images/icon/check-mark.png';
+  static const String ic_clock = 'assets/images/icon/clock.png';
+  static const String ic_edit = 'assets/images/icon/edit.png';
+  static const String ic_eye = 'assets/images/icon/eye.png';
+  static const String ic_facebook = 'assets/images/icon/facebook.png';
+  static const String ic_flashlight = 'assets/images/icon/flashlight.png';
+  static const String ic_flashlight_on = 'assets/images/icon/flashlight-on.png';
+  static const String ic_gallery = 'assets/images/icon/gallery.png';
+  static const String ic_google_plus = 'assets/images/icon/google-plus.png';
+  static const String ic_history = 'assets/images/icon/history.png';
+  static const String ic_home = 'assets/images/icon/home.png';
+  static const String ic_line_chart = 'assets/images/icon/line-chart.png';
+  static const String ic_musica_searcher = 'assets/images/icon/musica-searcher.png';
+  static const String ic_news = 'assets/images/icon/news.png';
+  static const String ic_notification = 'assets/images/icon/notification.png';
+  static const String ic_play_button = 'assets/images/icon/play-button.png';
+  static const String ic_question = 'assets/images/icon/question.png';
+  static const String ic_remote_control = 'assets/images/icon/remote-control.png';
+  static const String ic_report = 'assets/images/icon/report.png';
+  static const String ic_save = 'assets/images/icon/save.png';
+  static const String ic_scan = 'assets/images/icon/scan.png';
+  static const String ic_share = 'assets/images/icon/share.png';
+  static const String ic_shopping_store_cart = 'assets/images/icon/shopping-store-cart.png';
+  static const String ic_socket = 'assets/images/icon/socket.png';
+  static const String ic_spinner_of_dots = 'assets/images/icon/spinner-of-dots.png';
+  static const String ic_themometer = 'assets/images/icon/themometer.png';
+  static const String ic_timer = 'assets/images/icon/timer.png';
+  static const String ic_trash = 'assets/images/icon/trash.png';
+  static const String ic_user = 'assets/images/icon/user.png';
+  static const String ic_waste_bin = 'assets/images/icon/waste-bin.png';
+}

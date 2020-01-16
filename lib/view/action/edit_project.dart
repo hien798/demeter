@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_home/utils/color_utils.dart';
+import 'package:my_home/utils/path.dart';
 import 'package:my_home/utils/widget_utils.dart';
 
 class EditProject extends StatefulWidget {
@@ -62,12 +63,11 @@ class _EditProjectState extends State<EditProject> {
                       child: RaisedButton(
                         padding: EdgeInsets.zero,
                         shape: CircleBorder(),
-                        color: Colors.grey.withOpacity(0.8),
                         onPressed: () {},
-                        child: Icon(
-                          Icons.add,
+                        child: ImageIcon(
+                          AssetImage(ImagePath.ic_add),
                           color: Colors.black54,
-                          size: scaleWidth(context, 20),
+                          size: scaleWidth(context, 28),
                         ),
                       ),
                     ),
@@ -239,29 +239,37 @@ class _EditProjectState extends State<EditProject> {
   }
 
   Widget _buildSelected() {
-    return RaisedButton(
-      padding: EdgeInsets.zero,
-      shape: CircleBorder(),
-      color: Colors.green,
-      onPressed: () {},
-      child: Icon(
-        Icons.check,
+    return Container(
+      width: scaleWidth(context, 16),
+      height: scaleWidth(context, 16),
+      child: RaisedButton(
+        padding: EdgeInsets.zero,
+        shape: CircleBorder(),
         color: Colors.white,
-        size: scaleWidth(context, 12),
+        onPressed: () {},
+        child: ImageIcon(
+          AssetImage(ImagePath.ic_check_mark),
+          color: Colors.green,
+          size: scaleWidth(context, 16),
+        ),
       ),
     );
   }
 
   Widget _buildUnselected() {
-    return RaisedButton(
-      padding: EdgeInsets.zero,
-      shape: CircleBorder(),
-      color: Colors.black,
-      onPressed: () {},
-      child: Icon(
-        Icons.add,
+    return Container(
+      width: scaleWidth(context, 16),
+      height: scaleWidth(context, 16),
+      child: RaisedButton(
+        padding: EdgeInsets.zero,
+        shape: CircleBorder(),
         color: Colors.white,
-        size: scaleWidth(context, 12),
+        onPressed: () {},
+        child: ImageIcon(
+          AssetImage(ImagePath.ic_add),
+          color: Colors.black,
+          size: scaleWidth(context, 16),
+        ),
       ),
     );
   }

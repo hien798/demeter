@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_home/utils/color_utils.dart';
+import 'package:my_home/utils/path.dart';
 import 'package:my_home/utils/widget_utils.dart';
 
 class AddProject extends StatefulWidget {
@@ -9,12 +10,12 @@ class AddProject extends StatefulWidget {
 
 class _AddProjectState extends State<AddProject> {
   final _projects = [
-    ProjectType('Agriculture', Icons.local_florist),
-    ProjectType('Smart Home', Icons.home),
-    ProjectType('Education', Icons.event_note),
-    ProjectType('Medical', Icons.favorite_border),
-    ProjectType('Industrial', Icons.business),
-    ProjectType('Others', Icons.bubble_chart),
+    ProjectType('Agriculture', ImagePath.ic_plant),
+    ProjectType('Smart Home', ImagePath.ic_smart_home),
+    ProjectType('Education', ImagePath.ic_mortarboard),
+    ProjectType('Medical', ImagePath.ic_heart),
+    ProjectType('Industrial', ImagePath.ic_factory),
+    ProjectType('Others', ImagePath.ic_smart_energy),
   ];
 
   int _selectedIndex = 0;
@@ -74,12 +75,16 @@ class _AddProjectState extends State<AddProject> {
                                         ? selectedColor
                                         : unselectedColor),
                               ),
-                              child: Icon(
-                                pro.icon,
-                                color: isSelected
-                                    ? selectedColor
-                                    : unselectedColor,
-                                size: scaleWidth(context, 40),
+                              child: Center(
+                                child: Container(
+                                  child: ImageIcon(
+                                    AssetImage(pro.icon),
+                                    color: isSelected
+                                        ? selectedColor
+                                        : unselectedColor,
+                                    size: scaleWidth(context, 40),
+                                  ),
+                                ),
                               ),
                             ),
                             Expanded(
@@ -92,7 +97,7 @@ class _AddProjectState extends State<AddProject> {
                                   pro.title,
                                   style: TextStyle(
                                     color: Colors.black,
-                                    fontSize: scaleWidth(context, 16),
+                                    fontSize: scaleWidth(context, 15),
                                     fontWeight: FontWeight.w400,
                                   ),
                                 ),
@@ -134,7 +139,7 @@ class _AddProjectState extends State<AddProject> {
 
 class ProjectType {
   final String title;
-  final IconData icon;
+  final String icon;
 
   ProjectType(this.title, this.icon);
 }

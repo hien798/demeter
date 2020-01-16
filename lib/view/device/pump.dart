@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_home/utils/navigator.dart';
+import 'package:my_home/utils/path.dart';
 import 'package:my_home/utils/widget_utils.dart';
 
 class Pump extends StatefulWidget {
@@ -60,7 +61,7 @@ class _PumpState extends State<Pump> {
                 Expanded(
                     child: _buildPumpDevice(
                   'History',
-                  Icons.history,
+                  ImagePath.ic_history,
                   onPress: () {
                     push(context, Router.history);
                   },
@@ -68,7 +69,7 @@ class _PumpState extends State<Pump> {
                 Expanded(
                     child: _buildPumpDevice(
                   'Timer',
-                  Icons.timer,
+                      ImagePath.ic_timer,
                   onPress: () {
                     push(context, Router.timer);
                   },
@@ -76,7 +77,7 @@ class _PumpState extends State<Pump> {
                 Expanded(
                     child: _buildPumpDevice(
                   'Alarm',
-                  Icons.alarm,
+                      ImagePath.ic_clock,
                   onPress: () {
                     push(context, Router.alarm);
                   },
@@ -89,7 +90,7 @@ class _PumpState extends State<Pump> {
     );
   }
 
-  Widget _buildPumpDevice(String name, IconData icon, {Function onPress}) {
+  Widget _buildPumpDevice(String name, String icon, {Function onPress}) {
     final size = MediaQuery.of(context).size;
     return Container(
       child: Column(
@@ -106,8 +107,8 @@ class _PumpState extends State<Pump> {
               borderSide: BorderSide(color: Colors.grey),
               shape: CircleBorder(),
               child: Container(
-                  child: Icon(
-                icon,
+                  child: ImageIcon(
+                AssetImage(icon),
                 color: Colors.black,
                 size: scaleWidth(context, 50),
               )),
@@ -136,7 +137,7 @@ class _PumpState extends State<Pump> {
             child: Wrap(
               children: <Widget>[
                 ListTile(
-                  leading: Icon(Icons.share, color: Colors.black),
+                  leading: ImageIcon(AssetImage(ImagePath.ic_share), color: Colors.black),
                   title: Text(
                     'Share Device',
                     style: TextStyle(
@@ -145,7 +146,7 @@ class _PumpState extends State<Pump> {
                   onTap: () {},
                 ),
                 ListTile(
-                  leading: Icon(Icons.settings_remote, color: Colors.black),
+                  leading: ImageIcon(AssetImage(ImagePath.ic_remote_control), color: Colors.black),
                   title: Text(
                     'General Setting',
                     style: TextStyle(
@@ -157,7 +158,7 @@ class _PumpState extends State<Pump> {
                 ),
                 ListTile(
                   leading:
-                      Icon(Icons.settings_input_antenna, color: Colors.black),
+                  ImageIcon(AssetImage(ImagePath.ic_socket), color: Colors.black),
                   title: Text(
                     'Plugin Sensor',
                     style: TextStyle(
@@ -168,7 +169,7 @@ class _PumpState extends State<Pump> {
                   },
                 ),
                 ListTile(
-                  leading: Icon(Icons.help_outline, color: Colors.black),
+                  leading: ImageIcon(AssetImage(ImagePath.ic_question), color: Colors.black),
                   title: Text(
                     'Help',
                     style: TextStyle(

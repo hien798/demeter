@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_home/utils/navigator.dart';
+import 'package:my_home/utils/path.dart';
 import 'package:my_home/utils/widget_utils.dart';
 
 class DFamily extends StatefulWidget {
@@ -104,9 +105,9 @@ class _DFamilyState extends State<DFamily> {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  Expanded(child: _buildPumpDevice('History', Icons.history)),
-                  Expanded(child: _buildPumpDevice('Timer', Icons.timer)),
-                  Expanded(child: _buildPumpDevice('Alarm', Icons.alarm)),
+                  Expanded(child: _buildPumpDevice('History', ImagePath.ic_history)),
+                  Expanded(child: _buildPumpDevice('Timer', ImagePath.ic_timer)),
+                  Expanded(child: _buildPumpDevice('Alarm', ImagePath.ic_clock)),
                 ],
               ),
             ),
@@ -116,7 +117,7 @@ class _DFamilyState extends State<DFamily> {
     );
   }
 
-  Widget _buildPumpDevice(String name, IconData icon) {
+  Widget _buildPumpDevice(String name, String icon) {
     return Container(
       child: Column(
         children: <Widget>[
@@ -129,8 +130,8 @@ class _DFamilyState extends State<DFamily> {
               borderSide: BorderSide(color: Colors.grey),
               shape: CircleBorder(),
               child: Container(
-                  child: Icon(
-                icon,
+                  child: ImageIcon(
+                AssetImage(icon),
                 color: Colors.black,
                 size: scaleWidth(context, 30),
               )),
@@ -159,7 +160,7 @@ class _DFamilyState extends State<DFamily> {
             child: Wrap(
               children: <Widget>[
                 ListTile(
-                  leading: Icon(Icons.timeline, color: Colors.black),
+                  leading: ImageIcon(AssetImage(ImagePath.ic_line_chart), color: Colors.black),
                   title: Text(
                     'Automation',
                     style: TextStyle(
@@ -170,7 +171,7 @@ class _DFamilyState extends State<DFamily> {
                   },
                 ),
                 ListTile(
-                  leading: Icon(Icons.share, color: Colors.black),
+                  leading: ImageIcon(AssetImage(ImagePath.ic_share), color: Colors.black),
                   title: Text(
                     'Share Device',
                     style: TextStyle(
@@ -179,7 +180,7 @@ class _DFamilyState extends State<DFamily> {
                   onTap: () {},
                 ),
                 ListTile(
-                  leading: Icon(Icons.settings_remote, color: Colors.black),
+                  leading: ImageIcon(AssetImage(ImagePath.ic_remote_control), color: Colors.black),
                   title: Text(
                     'General Setting',
                     style: TextStyle(
@@ -189,7 +190,7 @@ class _DFamilyState extends State<DFamily> {
                 ),
                 ListTile(
                   leading:
-                      Icon(Icons.settings_input_antenna, color: Colors.black),
+                  ImageIcon(AssetImage(ImagePath.ic_socket), color: Colors.black),
                   title: Text(
                     'Plugin Sensor',
                     style: TextStyle(
@@ -200,7 +201,7 @@ class _DFamilyState extends State<DFamily> {
                   },
                 ),
                 ListTile(
-                  leading: Icon(Icons.help_outline, color: Colors.black),
+                  leading: ImageIcon(AssetImage(ImagePath.ic_question), color: Colors.black),
                   title: Text(
                     'Help',
                     style: TextStyle(

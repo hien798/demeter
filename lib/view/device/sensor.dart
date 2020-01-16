@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:my_home/utils/path.dart';
 import 'package:my_home/utils/widget_utils.dart';
 
 class Sensor extends StatefulWidget {
@@ -36,7 +37,7 @@ class _SensorState extends State<Sensor> {
                 margin: EdgeInsets.only(
                     top: index == 0 ? 0 : scaleWidth(context, 24)),
                 child: _buildCountdownItem('Temperature', 'Tomato temperature',
-                    true, Icons.bluetooth, 'By day'),
+                    true, ImagePath.ic_bluetooth, 'By day'),
               );
             }),
       ),
@@ -44,7 +45,7 @@ class _SensorState extends State<Sensor> {
   }
 
   Widget _buildCountdownItem(
-      String name, String label, bool status, IconData icon, String chart) {
+      String name, String label, bool status, String icon, String chart) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -110,7 +111,7 @@ class _SensorState extends State<Sensor> {
               ),
               Row(
                 children: <Widget>[
-                  Icon(icon, color: Colors.red),
+                  ImageIcon(AssetImage(icon), color: Colors.red),
                   Icon(Icons.chevron_right, color: Colors.black)
                 ],
               )
