@@ -5,6 +5,7 @@ class Router {
   static const dash = 'dash';
   static const dfamily = 'dfamily';
   static const add_device = 'add_device';
+  static const add_project = 'add_project';
   static const edit_project = 'edit_project';
   static const history = 'history';
   static const timer = 'timer';

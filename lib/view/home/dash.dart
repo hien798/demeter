@@ -70,7 +70,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                             width: scaleWidth(context, 36),
                             child: FloatingActionButton(
                               onPressed: () {
-                                push(context, Router.add_device);
+                                floatingAction();
                               },
                               child: Icon(Icons.add, color: Colors.white),
                               backgroundColor: Colors.grey.withOpacity(0.6),
@@ -120,6 +120,12 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
         ),
       ),
     );
+  }
+
+  void floatingAction() {
+    homePageIndex == 0
+        ? push(context, Router.add_device)
+        : push(context, Router.add_project);
   }
 }
 

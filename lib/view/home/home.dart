@@ -3,6 +3,8 @@ import 'package:demeter/utils/widget_utils.dart';
 import 'package:demeter/view/home/my_devices.dart';
 import 'package:demeter/view/home/my_project.dart';
 
+int homePageIndex = 0;
+
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -15,6 +17,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin, Auto
   void initState() {
     super.initState();
     _tabController = TabController(vsync: this, length: 2);
+    _tabController.addListener(() {
+      homePageIndex = _tabController.index;
+    });
   }
 
   @override
