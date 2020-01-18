@@ -1,3 +1,4 @@
+import 'package:demeter/utils/path.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:demeter/utils/color_utils.dart';
@@ -162,13 +163,13 @@ class _ReportState extends State<Report> {
             ),
           ),
           _buildDeviceItem(
-            'assets/images/light.jpg',
+            ImagePath.dv_light,
             'DFamily',
             'Carot Zone',
             true,
           ),
           _buildDeviceItem(
-            'assets/images/light.jpg',
+            ImagePath.dv_light,
             'Fan',
             '',
             false,
@@ -191,13 +192,13 @@ class _ReportState extends State<Report> {
             ),
           ),
           _buildDeviceItem(
-            'assets/images/light.jpg',
+            ImagePath.dv_light,
             'Temperature',
             'Tomato temperature',
             true,
           ),
           _buildDeviceItem(
-            'assets/images/light.jpg',
+            ImagePath.dv_light,
             'Humidity',
             'Tomato humidity',
             true,

@@ -1,3 +1,4 @@
+import 'package:demeter/utils/navigator.dart';
 import 'package:flutter/material.dart';
 import 'package:demeter/utils/color_utils.dart';
 import 'package:demeter/utils/path.dart';
@@ -57,24 +58,29 @@ class _AddProjectState extends State<AddProject> {
                   itemBuilder: (context, index) {
                     final pro = _projects[index];
                     final isSelected = index == _selectedIndex;
-                    return FlatButton(
-                      onPressed: () {},
-                      padding: EdgeInsets.zero,
-                      child: Container(
-                        child: Column(
-                          children: <Widget>[
-                            Container(
-                              height: scaleWidth(context, 80),
-                              width: scaleWidth(context, 80),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(
-                                    scaleWidth(context, 40)),
-                                border: Border.all(
-                                    width: isSelected ? 4.0 : 2.0,
-                                    color: isSelected
-                                        ? selectedColor
-                                        : unselectedColor),
-                              ),
+                    return Container(
+                      child: Column(
+                        children: <Widget>[
+                          Container(
+                            height: scaleWidth(context, 80),
+                            width: scaleWidth(context, 80),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(
+                                  scaleWidth(context, 40)),
+                              border: Border.all(
+                                  width: isSelected ? 4.0 : 2.0,
+                                  color: isSelected
+                                      ? selectedColor
+                                      : unselectedColor),
+                            ),
+                            child: RaisedButton(
+                              onPressed: () {
+                                setState(() {
+                                  _selectedIndex = index;
+                                });
+                              },
+                              shape: CircleBorder(),
+                              color: Colors.white,
                               child: Center(
                                 child: Container(
                                   child: ImageIcon(
@@ -87,24 +93,24 @@ class _AddProjectState extends State<AddProject> {
                                 ),
                               ),
                             ),
-                            Expanded(
-                              child: Container(
-                                padding: EdgeInsets.only(
-                                    bottom: scaleWidth(context, 12)),
-                                width: scaleWidth(context, 90),
-                                alignment: Alignment.center,
-                                child: Text(
-                                  pro.title,
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: scaleWidth(context, 15),
-                                    fontWeight: FontWeight.w400,
-                                  ),
+                          ),
+                          Expanded(
+                            child: Container(
+                              padding: EdgeInsets.only(
+                                  bottom: scaleWidth(context, 12)),
+                              width: scaleWidth(context, 90),
+                              alignment: Alignment.center,
+                              child: Text(
+                                pro.title,
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: scaleWidth(context, 15),
+                                  fontWeight: FontWeight.w400,
                                 ),
                               ),
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     );
                   },
@@ -118,7 +124,7 @@ class _AddProjectState extends State<AddProject> {
               ),
               child: FlatButton(
                 onPressed: () {
-                  print('create project');
+                  push(context, Router.edit_project);
                 },
                 child: Text(
                   'Create Project',

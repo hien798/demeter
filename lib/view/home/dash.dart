@@ -49,43 +49,43 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
               child: Container(
                 child: Column(
                   children: <Widget>[
-                    Stack(
-                      alignment: Alignment.topRight,
-                      children: <Widget>[
-                        Container(
-                          width: double.infinity,
-                          height: scaleHeight(context, 100),
-                          alignment: Alignment.bottomLeft,
-                          padding: EdgeInsets.all(scaleWidth(context, 16)),
-                          color: Colors.black26,
-                          child: AppbarTitle(
-                            controller: _tabController,
-                            titles: tabs.map((data) => data.title).toList(),
-                          ),
-                        ),
-                        Positioned(
-                          top: scaleHeight(context, 0),
-                          right: scaleWidth(context, 16),
-                          child: Container(
-                            width: scaleWidth(context, 36),
-                            child: FloatingActionButton(
-                              onPressed: () {
-                                floatingAction();
-                              },
-                              child: Icon(Icons.add, color: Colors.white),
-                              backgroundColor: Colors.grey.withOpacity(0.6),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+//                    Stack(
+//                      alignment: Alignment.topRight,
+//                      children: <Widget>[
+//                        Container(
+//                          width: double.infinity,
+//                          height: scaleHeight(context, 100),
+//                          alignment: Alignment.bottomLeft,
+//                          padding: EdgeInsets.all(scaleWidth(context, 16)),
+//                          color: Colors.black26,
+//                          child: AppbarTitle(
+//                            controller: _tabController,
+//                            titles: tabs.map((data) => data.title).toList(),
+//                          ),
+//                        ),
+//                        Positioned(
+//                          top: scaleHeight(context, 0),
+//                          right: scaleWidth(context, 16),
+//                          child: Container(
+//                            width: scaleWidth(context, 36),
+//                            child: FloatingActionButton(
+//                              onPressed: () {
+//                                floatingAction();
+//                              },
+//                              child: Icon(Icons.add, color: Colors.white),
+//                              backgroundColor: Colors.grey.withOpacity(0.6),
+//                            ),
+//                          ),
+//                        ),
+//                      ],
+//                    ),
                     Expanded(
                       child: Container(
                         child: TabBarView(
                           controller: _tabController,
                           physics: NeverScrollableScrollPhysics(),
                           children: <Widget>[
-                            HomePage(),
+                            HomePage.instance(),
                             Center(
                               child: Text('Store'),
                             ),
@@ -120,12 +120,6 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
         ),
       ),
     );
-  }
-
-  void floatingAction() {
-    homePageIndex == 0
-        ? push(context, Router.add_device)
-        : push(context, Router.add_project);
   }
 }
 

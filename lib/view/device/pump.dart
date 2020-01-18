@@ -1,3 +1,4 @@
+import 'package:demeter/model/device.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:demeter/utils/navigator.dart';
@@ -17,11 +18,12 @@ class _PumpState extends State<Pump> {
 
   @override
   Widget build(BuildContext context) {
+    Device device = ModalRoute.of(context).settings.arguments;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xffeeeeee),
         title: Text(
-          'Pump',
+          device.name,
           style: TextStyle(color: Colors.black),
         ),
         centerTitle: true,
@@ -49,7 +51,7 @@ class _PumpState extends State<Pump> {
             height: scaleWidth(context, 248),
             decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('assets/images/pump.png'),
+                  image: AssetImage(device.image),
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(scaleWidth(context, 30))),

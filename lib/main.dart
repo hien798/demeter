@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
       routes: <String, WidgetBuilder>{
         Router.login: (context) => LoginPage(),
         Router.dash: (context) => Dashboard(),
-        Router.dfamily: (context) => DFamily(),
+        Router.dfamily: (context) => DFamilyWidget(),
         Router.add_device: (context) => AddDevice(),
         Router.add_project: (context) => AddProject(),
         Router.edit_project: (context) => EditProject(),

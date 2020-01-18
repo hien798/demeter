@@ -1,3 +1,4 @@
+import 'package:demeter/utils/navigator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:demeter/utils/color_utils.dart';
@@ -53,7 +54,7 @@ class _EditProjectState extends State<EditProject> {
                       borderRadius:
                           BorderRadius.circular(scaleWidth(context, 8)),
                       image: DecorationImage(
-                        image: AssetImage('assets/images/farm.jpg'),
+                        image: AssetImage(ImagePath.dv_farm),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -151,7 +152,7 @@ class _EditProjectState extends State<EditProject> {
                     itemCount: 10,
                     itemBuilder: (context, index) {
                       return _buildDeviceItem(
-                        'assets/images/light.jpg',
+                        ImagePath.dv_light,
                         'DFamily',
                         'Carot Zone',
                         index % 3 == 0,
@@ -188,7 +189,7 @@ class _EditProjectState extends State<EditProject> {
               ),
               child: FlatButton(
                 onPressed: () {
-                  print('create project');
+                  pop(context);
                 },
                 child: Text(
                   'Save Project',

@@ -1,15 +1,30 @@
+import 'package:demeter/bloc/base/bloc_providers.dart';
+import 'package:demeter/bloc/home/home_bloc.dart';
+import 'package:demeter/utils/path.dart';
 import 'package:flutter/material.dart';
 import 'package:demeter/utils/navigator.dart';
 import 'package:demeter/utils/widget_utils.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
 class MyProject extends StatefulWidget {
+  final parentBloc;
+
+  MyProject({Key key, this.parentBloc}) : super(key: key);
+
   @override
   _MyProjectState createState() => _MyProjectState();
 }
 
 class _MyProjectState extends State<MyProject>
     with AutomaticKeepAliveClientMixin {
+  HomeBloc _bloc;
+
+  @override
+  void initState() {
+    super.initState();
+    _bloc = widget.parentBloc;
+  }
+
   @override
   bool get wantKeepAlive => true;
 
@@ -22,9 +37,11 @@ class _MyProjectState extends State<MyProject>
       child: ListView.builder(
         padding: EdgeInsets.symmetric(horizontal: 8, vertical: 24),
         itemBuilder: (context, index) {
+          final project = _bloc.projects[index];
           return InkWell(
             onTap: () {
-              push(context, Router.edit_project);
+              _bloc.projectIndex = index;
+              _bloc.changeLayout(LayoutType.detail);
             },
             child: Container(
               height: size.width / 3.5,
@@ -40,8 +57,7 @@ class _MyProjectState extends State<MyProject>
                     borderRadius: BorderRadius.circular(8),
                     child: AspectRatio(
                       aspectRatio: 1,
-                      child: Image.asset('assets/images/farm.jpg',
-                          fit: BoxFit.cover),
+                      child: Image.asset(project.image, fit: BoxFit.cover),
                     ),
                   ),
                   Expanded(
@@ -54,7 +70,7 @@ class _MyProjectState extends State<MyProject>
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: <Widget>[
                                 Text(
-                                  'Tomato',
+                                  project.name,
                                   style: TextStyle(
                                     color: Colors.black,
                                     fontWeight: FontWeight.w600,
@@ -150,7 +166,7 @@ class _MyProjectState extends State<MyProject>
             ),
           );
         },
-        itemCount: 3,
+        itemCount: _bloc.projects.length,
       ),
     );
   }

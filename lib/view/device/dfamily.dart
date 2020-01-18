@@ -4,12 +4,12 @@ import 'package:demeter/utils/navigator.dart';
 import 'package:demeter/utils/path.dart';
 import 'package:demeter/utils/widget_utils.dart';
 
-class DFamily extends StatefulWidget {
+class DFamilyWidget extends StatefulWidget {
   @override
-  _DFamilyState createState() => _DFamilyState();
+  _DFamilyWidgetState createState() => _DFamilyWidgetState();
 }
 
-class _DFamilyState extends State<DFamily> {
+class _DFamilyWidgetState extends State<DFamilyWidget> {
   @override
   void initState() {
     super.initState();
@@ -90,7 +90,7 @@ class _DFamilyState extends State<DFamily> {
                 margin: EdgeInsets.all(scaleWidth(context, 8)),
                 decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage('assets/images/pump.png'),
+                      image: AssetImage(ImagePath.dv_pump),
                       fit: BoxFit.cover,
                     ),
                     borderRadius:

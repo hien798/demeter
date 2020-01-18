@@ -6,6 +6,15 @@ class ImagePath {
   static const String lg_demeter = 'assets/images/logo/LogoDemeter.png';
   static const String lg_demeter_light = 'assets/images/logo/LogoDemeterPNG.png';
 
+  static const String dv_camera = 'assets/images/device/camera.png';
+  static const String dv_dfamily = 'assets/images/device/dfamily.png';
+  static const String dv_fan = 'assets/images/device/fan.png';
+  static const String dv_light = 'assets/images/device/light.png';
+  static const String dv_pump = 'assets/images/device/pump.png';
+  static const String dv_tomato = 'assets/images/device/tomato.png';
+  static const String dv_farm = 'assets/images/device/farm.jpg';
+  static const String dv_room = 'assets/images/device/room.jpg';
+
   static const String ic_plant = 'assets/images/icon/001-plant.png';
   static const String ic_mortarboard = 'assets/images/icon/002-mortarboard.png';
   static const String ic_heart = 'assets/images/icon/003-heart.png';

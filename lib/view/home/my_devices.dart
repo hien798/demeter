@@ -1,3 +1,9 @@
+import 'package:demeter/bloc/base/bloc_providers.dart';
+import 'package:demeter/bloc/home/home_bloc.dart';
+import 'package:demeter/model/camera.dart';
+import 'package:demeter/model/device.dart';
+import 'package:demeter/model/dfamily.dart';
+import 'package:demeter/view/device/dfamily.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:demeter/utils/navigator.dart';
@@ -11,6 +17,14 @@ class MyDevice extends StatefulWidget {
 
 class _MyDeviceState extends State<MyDevice>
     with AutomaticKeepAliveClientMixin {
+  HomeBloc _bloc;
+
+  @override
+  void initState() {
+    super.initState();
+    _bloc = BlocProvider.of<HomeBloc>(context);
+  }
+
   @override
   bool get wantKeepAlive => true;
 
@@ -50,29 +64,33 @@ class _MyDeviceState extends State<MyDevice>
   }
 
   Widget _buildDevices() {
+    final devices = _bloc.devices.sublist(0, 3);
+    final device = _bloc.devices.last;
+    final dfamily = _bloc.dfamily;
+    final camera = _bloc.camera;
     return ListView(
       padding: EdgeInsets.symmetric(
           horizontal: 8, vertical: scaleWidth(context, 24)),
       children: <Widget>[
         Row(
-          children: List.generate(3, (index) => _buildSmallDevice()),
+          children: devices.map((dv) => _buildSmallDevice(dv)).toList(),
         ),
         Row(
           children: <Widget>[
-            _buildMediumDevice(),
-            _buildSmallDevice(),
+            _buildMediumDevice(dfamily),
+            _buildSmallDevice(device),
           ],
         ),
         Row(
           children: <Widget>[
-            _buildLargeDevice(),
+            _buildLargeDevice(camera),
           ],
         ),
       ],
     );
   }
 
-  Widget _buildSmallDevice() {
+  Widget _buildSmallDevice(Device device) {
     final size = MediaQuery.of(context).size;
     final width = (size.width - 16 * 4) / 3;
     final switchScale = (width / 4) / 39; // height of switch 39
@@ -95,16 +113,18 @@ class _MyDeviceState extends State<MyDevice>
                   flex: 1,
                   child: InkWell(
                       onTap: () {
-                        push(context, Router.pump);
+                        push(context, Router.pump, arguments: device);
                       },
-                      child: Image.asset('assets/images/light.jpg')),
+                      child: Container(
+                          padding: EdgeInsets.all(scaleWidth(context, 4)),
+                          child: Image.asset(device.image))),
                 ),
                 Expanded(
                   flex: 1,
                   child: Transform.scale(
                     scale: switchScale,
                     child: CupertinoSwitch(
-                      value: true,
+                      value: device.status,
                       activeColor: Colors.green,
                       onChanged: (value) {},
                     ),
@@ -118,7 +138,7 @@ class _MyDeviceState extends State<MyDevice>
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 8),
               child: Text(
-                'LightX',
+                device.name,
                 style: TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.w500,
@@ -132,7 +152,7 @@ class _MyDeviceState extends State<MyDevice>
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 8),
               child: Text(
-                'On',
+                device.desc,
                 style: TextStyle(
                   color: Colors.grey,
                   fontSize: scaleWidth(context, 14),
@@ -145,7 +165,7 @@ class _MyDeviceState extends State<MyDevice>
     );
   }
 
-  Widget _buildMediumDevice() {
+  Widget _buildMediumDevice(DFamily dFamily) {
     final size = MediaQuery.of(context).size;
     final width = (size.width - 16 * 4) / 3;
     final switchScale = (width / 4) / 39; // height of switch 39
@@ -175,14 +195,16 @@ class _MyDeviceState extends State<MyDevice>
                             onTap: () {
                               push(context, Router.dfamily);
                             },
-                            child: Image.asset('assets/images/light.jpg')),
+                            child: Container(
+                                padding: EdgeInsets.all(scaleWidth(context, 4)),
+                                child: Image.asset(dFamily.image))),
                       ),
                       Expanded(
                         flex: 1,
                         child: Transform.scale(
                           scale: switchScale,
                           child: CupertinoSwitch(
-                            value: true,
+                            value: dFamily.status,
                             activeColor: Colors.green,
                             onChanged: (value) {},
                           ),
@@ -196,7 +218,7 @@ class _MyDeviceState extends State<MyDevice>
                   child: Padding(
                     padding: EdgeInsets.symmetric(horizontal: 8),
                     child: Text(
-                      'DFamily',
+                      dFamily.name,
                       style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.w500,
@@ -210,7 +232,7 @@ class _MyDeviceState extends State<MyDevice>
                   child: Padding(
                     padding: EdgeInsets.symmetric(horizontal: 8),
                     child: Text(
-                      'On',
+                      dFamily.desc,
                       style: TextStyle(
                         color: Colors.grey,
                         fontSize: scaleWidth(context, 14),
@@ -229,9 +251,10 @@ class _MyDeviceState extends State<MyDevice>
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: <Widget>[
                   Container(
+                    width: scaleWidth(context, 100),
                     height: width / 4,
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         Text(
                           'Light',
@@ -247,7 +270,7 @@ class _MyDeviceState extends State<MyDevice>
                             scale: switchScale,
                             child: CupertinoSwitch(
                               // width 59, height 39
-                              value: true,
+                              value: dFamily.light,
                               activeColor: Colors.green,
                               onChanged: (value) {},
                             ),
@@ -257,9 +280,10 @@ class _MyDeviceState extends State<MyDevice>
                     ),
                   ),
                   Container(
+                    width: scaleWidth(context, 100),
                     height: width / 4,
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         Text(
                           'Pump',
@@ -274,7 +298,7 @@ class _MyDeviceState extends State<MyDevice>
                           child: Transform.scale(
                             scale: switchScale,
                             child: CupertinoSwitch(
-                              value: false,
+                              value: dFamily.pump,
                               activeColor: Colors.green,
                               onChanged: (value) {},
                             ),
@@ -284,9 +308,10 @@ class _MyDeviceState extends State<MyDevice>
                     ),
                   ),
                   Container(
+                    width: scaleWidth(context, 100),
                     height: width / 4,
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         Text(
                           'Fan',
@@ -301,7 +326,7 @@ class _MyDeviceState extends State<MyDevice>
                           child: Transform.scale(
                             scale: switchScale,
                             child: CupertinoSwitch(
-                              value: true,
+                              value: dFamily.fan,
                               activeColor: Colors.green,
                               onChanged: (value) {},
                             ),
@@ -319,7 +344,7 @@ class _MyDeviceState extends State<MyDevice>
     );
   }
 
-  Widget _buildLargeDevice() {
+  Widget _buildLargeDevice(Camera camera) {
     final size = MediaQuery.of(context).size;
     final width = (size.width - 16 * 4) / 3;
     final switchScale = (width / 4) / 39; // height of switch 39
@@ -344,14 +369,14 @@ class _MyDeviceState extends State<MyDevice>
                     children: <Widget>[
                       Expanded(
                         flex: 1,
-                        child: Image.asset('assets/images/light.jpg'),
+                        child: Image.asset(camera.image),
                       ),
                       Expanded(
                         flex: 1,
                         child: Transform.scale(
                           scale: switchScale,
                           child: CupertinoSwitch(
-                            value: true,
+                            value: camera.status,
                             activeColor: Colors.green,
                             onChanged: (value) {},
                           ),
@@ -365,7 +390,7 @@ class _MyDeviceState extends State<MyDevice>
                   child: Padding(
                     padding: EdgeInsets.symmetric(horizontal: 8),
                     child: Text(
-                      'Camera',
+                      camera.name,
                       style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.w500,
@@ -379,7 +404,7 @@ class _MyDeviceState extends State<MyDevice>
                   child: Padding(
                     padding: EdgeInsets.symmetric(horizontal: 8),
                     child: Text(
-                      'On',
+                      camera.desc,
                       style: TextStyle(
                         color: Colors.grey,
                         fontSize: scaleWidth(context, 14),
@@ -402,13 +427,14 @@ class _MyDeviceState extends State<MyDevice>
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8),
                       image: DecorationImage(
-                        image: AssetImage('assets/images/farm.jpg'),
+                        image: AssetImage(camera.camera),
                         fit: BoxFit.cover,
                       ),
                     ),
                     child: Center(
                       child: ClipRRect(
-                        borderRadius: BorderRadius.circular(scaleWidth(context, 20)),
+                        borderRadius:
+                            BorderRadius.circular(scaleWidth(context, 20)),
                         child: Container(
                           width: scaleWidth(context, 40),
                           height: scaleWidth(context, 40),
