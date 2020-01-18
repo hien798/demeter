@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:my_home/utils/widget_utils.dart';
-import 'package:my_home/view/home/my_devices.dart';
-import 'package:my_home/view/home/my_project.dart';
+import 'package:demeter/utils/widget_utils.dart';
+import 'package:demeter/view/home/my_devices.dart';
+import 'package:demeter/view/home/my_project.dart';
 
 class HomePage extends StatefulWidget {
   @override

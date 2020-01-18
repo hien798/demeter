@@ -1,4 +1,4 @@
-package xyz.nvhbk.my_home
+package xyz.nvhbk.demeter
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity

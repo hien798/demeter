@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:my_home/utils/navigator.dart';
-import 'package:my_home/utils/path.dart';
-import 'package:my_home/utils/widget/appbar_title.dart';
-import 'package:my_home/utils/widget/bottom_navi_tabbar.dart';
-import 'package:my_home/utils/widget_utils.dart';
-import 'package:my_home/view/home/home.dart';
+import 'package:demeter/utils/navigator.dart';
+import 'package:demeter/utils/path.dart';
+import 'package:demeter/utils/widget/appbar_title.dart';
+import 'package:demeter/utils/widget/bottom_navi_tabbar.dart';
+import 'package:demeter/utils/widget_utils.dart';
+import 'package:demeter/view/home/home.dart';
 
 class Dashboard extends StatefulWidget {
   @override

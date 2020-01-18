@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:my_home/utils/path.dart';
-import 'package:my_home/utils/widget_utils.dart';
+import 'package:demeter/utils/path.dart';
+import 'package:demeter/utils/widget_utils.dart';
 
 class Sensor extends StatefulWidget {
   @override

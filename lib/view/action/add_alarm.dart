@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:my_home/utils/color_utils.dart';
-import 'package:my_home/utils/navigator.dart';
-import 'package:my_home/utils/widget_utils.dart';
+import 'package:demeter/utils/color_utils.dart';
+import 'package:demeter/utils/navigator.dart';
+import 'package:demeter/utils/widget_utils.dart';
 
 class AddAlarm extends StatefulWidget {
   @override
